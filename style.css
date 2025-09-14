@@ -1,0 +1,365 @@
+@font-face {
+  font-family: FantasqueSansMono-Regular;
+  src: url("fonts/FantasqueSansMono/FantasqueSansMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: FantasqueSansMono-Bold;
+  src: url("fonts/FantasqueSansMono/FantasqueSansMono-Bold.ttf");
+}
+
+@font-face {
+  font-family: FantasqueSansMono-BoldItalic;
+  src: url("fonts/FantasqueSansMono/FantasqueSansMono-BoldItalic.ttf");
+}
+
+@font-face {
+  font-family: FantasqueSansMono-Italic;
+  src: url("fonts/FantasqueSansMono/FantasqueSansMono-Italic.ttf");
+}
+
+html, body {
+  height: auto;
+  min-height: 100vh;
+}
+
+body {
+  background-image: url("images/background.jpg");
+  font-family: FantasqueSansMono-Regular, Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 10px;
+}
+
+h1 {
+  font-family: FantasqueSansMono-Bold, Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: dotted;
+}
+
+#hamburger-menu-toggle {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.hamburger-menu {
+    height: auto;
+    width: 100%;
+    max-width: 150px;
+    position: fixed;
+    top: 17vh;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 15px;
+    margin: 0;
+    right: -450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.3rem;
+    transition: .3s ease;
+    z-index: 999;
+}
+
+.hamburger-menu .GlassContainer {
+    height: 100%;
+    width: 100%
+}
+
+.hamburger-menu .GlassContent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hamburger-menu.active {
+    right: 0;
+}
+
+.content {
+  position: sticky;
+  top: 0;
+  align-self: center;
+  width: 92%;
+  min-height: 10vh;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  transition: ease 0.5s;
+}
+
+.content h1 {
+  font-size: 4rem;
+}
+
+.content p {
+  font-size: 1.5rem;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  align-self: center;
+  width: 96%;
+  min-height: 10vh;
+  padding: 10px;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1000;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  transition: ease 0.5s;
+}
+
+.header-left {
+  display: flex; /* put logo + text side by side */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; /* vertically center logo + text */
+  gap: 15px; /* spacing between logo and text */
+}
+
+.header-left-elements {
+  display: flex;
+  flex-direction: column; /* stack title + tagline vertically */
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+  height: auto;
+}
+
+.header-right-elements {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  border-radius: 15px;
+  width: 80px;
+  height: 80px;
+}
+
+.page-title,
+.tagline h3 {
+  margin: 0; /* remove default browser margins */
+  line-height: 1.3; /* tighten up spacing */
+}
+
+.page-title {
+  font-size: 20px;
+}
+
+.tagline {
+  font-family: FantasqueSansMono-Italic, Arial, Helvetica, sans-serif;
+  min-width: 150px;
+  height: 50px;
+}
+
+.GlassContainer {
+  --corner-radius: 24px;
+  --base-strength: 24px;
+  --extra-blur: 7px;
+  --softness: 32px;
+  --tint-amount: 0;
+  --tint-saturation: 2;
+  --tint-hue: 180deg;
+  --contrast: 1;
+  --brightness: 1;
+  --invert: 10%;
+
+  --total-strength: calc(var(--base-strength) + var(--extra-blur));
+  --edge-width: calc(0.3px + (var(--softness) * 0.1));
+  --emboss-width: calc((var(--softness) * 0.38));
+  --refraction-width: calc((var(--softness) * 0.3));
+
+  position: relative;
+  overflow: visible;
+  pointer-events: none;
+}
+.HeaderGlassContent {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  overflow: hidden;
+  border-radius: var(--corner-radius);
+  pointer-events: auto;
+  padding: 10px 20px;
+}
+
+.GlassContent {
+  position: relative;
+  display: block;
+  z-index: 100;
+  padding: 20px;
+  overflow: hidden;
+  border-radius: var(--corner-radius);
+  pointer-events: auto;
+}
+
+.GlassMaterial {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: visible;
+  pointer-events: none;
+}
+.GlassMaterial:after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  border-radius: var(--corner-radius);
+  background-color: rgba(128, 128, 128, 0);
+}
+.GlassMaterial > div {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  border-radius: var(--corner-radius);
+  z-index: 2;
+  overflow: hidden;
+}
+.GlassMaterial .GlassEdgeReflection {
+  z-index: 4;
+  margin: calc(var(--total-strength) * -1);
+  border-radius: calc(var(--corner-radius) + var(--total-strength));
+  backdrop-filter: blur(var(--total-strength)) brightness(1.2) saturate(1.2);
+  padding: var(--edge-width);
+  border: var(--total-strength) solid transparent;
+  mask: linear-gradient(white 0 0) padding-box,
+    linear-gradient(white 0 0) content-box;
+  mask-composite: exclude, exclude;
+}
+.GlassMaterial .GlassEmbossReflection {
+  backdrop-filter: blur(calc(var(--total-strength) * 1.5)) invert(0.25)
+    brightness(1.11) saturate(1.2) hue-rotate(-10deg) contrast(2.3);
+  padding: var(--emboss-width);
+  border: 0 solid transparent;
+  mask: linear-gradient(white 0 0) padding-box,
+    linear-gradient(white 0 0) content-box;
+  mask-composite: exclude, exclude;
+}
+.GlassMaterial .GlassRefraction {
+  backdrop-filter: invert(0.1) brightness(1.2) contrast(1.5);
+  padding: var(--refraction-width);
+  border: calc(var(--emboss-width)) solid transparent;
+  mask: linear-gradient(white 0 0) padding-box,
+    linear-gradient(white 0 0) content-box;
+  mask-composite: exclude, exclude;
+}
+.GlassMaterial .GlassBlur {
+  backdrop-filter: blur(var(--extra-blur)) brightness(1.25);
+  border-radius: calc(
+    var(--corner-radius) - (var(--emboss-width) + var(--refraction-width))
+  );
+  margin: calc(var(--emboss-width) + var(--refraction-width));
+}
+.GlassMaterial .BlendLayers {
+  z-index: 3;
+  backdrop-filter: blur(
+    calc((var(--softness) * 0.2) + (var(--extra-blur) * 0.2))
+  );
+}
+.GlassMaterial .BlendEdge {
+  z-index: 8;
+  backdrop-filter: blur(calc(var(--edge-width) * 0.4)) contrast(1.6)
+    saturate(1.5);
+}
+.GlassContainer:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: block;
+  border-radius: var(--corner-radius);
+  backdrop-filter: invert(var(--invert));
+}
+.GlassMaterial:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  display: block;
+  border-radius: var(--corner-radius);
+  padding: 1px;
+  border: 0 solid transparent;
+  background: linear-gradient(
+    155deg,
+    hsla(0, 0%, 100%, 0.15) 0%,
+    hsla(0, 0%, 0%, 0.2) 50%,
+    hsla(0, 0%, 100%, 0.15) 100%
+  );
+  backdrop-filter: invert(0.15) opacity(1);
+  mask: linear-gradient(white 0 0) padding-box,
+    linear-gradient(white 0 0) content-box;
+  mask-composite: exclude, exclude;
+}
+.GlassMaterial .Highlight {
+  z-index: 12;
+  display: block;
+  border-radius: var(--corner-radius);
+  padding: 1px;
+  border: 0 solid transparent;
+  backdrop-filter: brightness(1.2) contrast(1.6) saturate(1.2) opacity(1);
+  mask: linear-gradient(white 0 0) padding-box,
+    linear-gradient(white 0 0) content-box;
+  mask-composite: exclude, exclude;
+}
+
+@media (max-width: 600px) {
+  .header-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .header-left-elements {
+    align-items: center;
+  }
+
+  .content .GlassContainer .GlassContent .header-left-elements {
+    align-items: flex-start;
+  }
+
+  .content .GlassContainer .GlassContent {
+    flex-direction: column;
+  }
+
+  .page-title {
+    font-size: 16px; /* shrink a bit for mobile */
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+}
