@@ -11,7 +11,6 @@ window.addEventListener('resize', updateMenuPosition);
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Add scripts required for liquid glass etc here
     const hamburgerMenuToggle = document.getElementById("hamburger-menu-toggle");
     hamburgerMenuToggle.onclick = () => {
         menu.classList.toggle('active');
